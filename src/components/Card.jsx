@@ -1,7 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Task from "./Task";
+import { helpFetch } from "../helpers/helpFetch";
 
-export default function Card({ type, tasks }) {
+export default function Card({ type }) {
+  const [tasks, setTasks] = useState([]);
+
+  const API = helpFetch();
+
+  useEffect(() => {
+    (async () => {
+      const data = await API.get('tasks');
+      setTasks(data);
+    })();
+  }, []);
+
+  const addTask = () => {};
+
+  const editTask = () => {};
+
+  const deleteTask = () => {};
+
+  const listTasks = () => {
+    return tasks
+      .filter((task) => task.state.toLowerCase() === type.toLowerCase())
+      .map((task) => (
+        <Task
+          key={task.id}
+          description={task.description}
+          name={task.name}
+          points={task.points}
+          priority={task.priority}
+        />
+      ));
+  };
+
   return (
     <div
       className="w-[50vw] border-double border-4
@@ -11,45 +43,7 @@ export default function Card({ type, tasks }) {
         <h1 className="text-left p-2 border-solid border-b-2 mb-1 text-xs text-gray-500">
           {type}
         </h1>
-        {type === "TO DO" && (
-          <Task
-            description="Tarea para hacer numero 1"
-            name="ITDR-333"
-            points={3}
-            priority="Baja"
-          />
-        )}
-        {type === "TO DO" && (
-          <Task
-            description="Tarea para hacer numero 1"
-            name="ITDR-333"
-            points={3}
-            priority="Baja"
-          />
-        )}
-        {type === "IN PROGRESS" && (
-          <Task
-            description="Tarea para hacer numero 2"
-            name="ITDR-333"
-            points={3}
-            priority="Media"
-          />
-        )}
-        {type === "UNDER REVIEW" && (
-          <Task
-            description="Tarea para hacer numero 3"
-            name="ITDR-333"
-            points={3}
-            priority="Urgente"
-          />
-        )}
-        {type === "DONE" && (
-          <Task
-            description="Tarea para hacer numero 2"
-            name="ITDR-333"
-            points={3}
-          />
-        )}
+        {listTasks()}
       </div>
       +
     </div>

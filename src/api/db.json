@@ -1,25 +1,44 @@
 {
-    "tareas": [
-        {
-            "id": 1,
-            "name": "Tarea 1",
-            "description": "description de la tarea 1",
-            "priority": "pendiente",
-            "points": 7
-        },
-        {
-            "id": 2,
-            "name": "Tarea 2",
-            "description": "description de la tarea 2",
-            "priority": "pendiente",
-            "points": 3
-        },
-        {
-            "id": 3,
-            "name": "Tarea 3",
-            "description": "description de la tarea 3",
-            "priority": "pendiente",
-            "points": 7
-        }
-    ]
+  "tasks": [
+    {
+      "id": 1,
+      "name": "ITDR 3",
+      "description": "Tarea para hacer",
+      "priority": "Baja",
+      "points": 7,
+      "state": "to do"
+    },
+    {
+      "id": 2,
+      "name": "ITDR 7",
+      "description": "Tarea en progreso",
+      "priority": "Media",
+      "points": 3,
+      "state": "in progress"
+    },
+    {
+      "id": 2,
+      "name": "ITDR 37",
+      "description": "Task under review",
+      "priority": "Media",
+      "points": 3,
+      "state": "under review"
+    },
+    {
+      "id": 3,
+      "name": "ITDR 37",
+      "description": "Done task",
+      "priority": "",
+      "points": 7,
+      "state": "done"
+    },
+    {
+      "id": 4,
+      "name": "ITDR 737",
+      "description": "Done task 2",
+      "priority": "",
+      "points": 3,
+      "state": "done"
+    }
+  ]
 }
