@@ -1,0 +1,25 @@
+{
+    "tareas": [
+        {
+            "id": 1,
+            "name": "Tarea 1",
+            "description": "description de la tarea 1",
+            "priority": "pendiente",
+            "points": 7
+        },
+        {
+            "id": 2,
+            "name": "Tarea 2",
+            "description": "description de la tarea 2",
+            "priority": "pendiente",
+            "points": 3
+        },
+        {
+            "id": 3,
+            "name": "Tarea 3",
+            "description": "description de la tarea 3",
+            "priority": "pendiente",
+            "points": 7
+        }
+    ]
+}
