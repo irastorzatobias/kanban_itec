@@ -9,14 +9,31 @@ export default function Card({ type }) {
 
   useEffect(() => {
     (async () => {
-      const data = await API.get('tasks');
+      const data = await API.get("tasks");
       setTasks(data);
     })();
   }, []);
 
-  const addTask = () => {};
+  const addTask = (nameOfTask) => {
+    const task = {
+      name: "Tarea agregada por POST",
+      description: "Agregada",
+      points: 29,
+      priority: "",
+      state: "done",
+    };
 
-  const editTask = () => {};
+    const options = {
+      body: task,
+    };
+
+    API.post("tasks", options);
+    setTasks([...tasks, task]);
+  };
+
+  const editTask = () => {
+    return;
+  };
 
   const deleteTask = () => {};
 
@@ -25,11 +42,13 @@ export default function Card({ type }) {
       .filter((task) => task.state.toLowerCase() === type.toLowerCase())
       .map((task) => (
         <Task
+          id={task.id}
           key={task.id}
           description={task.description}
           name={task.name}
           points={task.points}
           priority={task.priority}
+          addingTask={addTask}
         />
       ));
   };
