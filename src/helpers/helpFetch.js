@@ -30,15 +30,12 @@ export const helpFetch = () => {
     return customFetch(endpoint, options);
   };
 
-  const put = (endpoint, options, id) => {
-    options.method = "PUT";
+  const erase = (endpoint, id) => {
+    const options = {
+      method: 'DELETE'
+    }
     return customFetch(`${endpoint}/${id}`, options);
-  };
-
-  const erase = (endpoint, options) => {
-    options.method = "DELETE";
-    return customFetch(endpoint, options);
   }
 
-  return { get, post, put };
+  return { get, post, erase };
 };

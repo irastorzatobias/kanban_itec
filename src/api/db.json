@@ -1,44 +1,44 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "name": "ITDR 3",
-      "description": "Tarea para hacer",
+      "name": "ITDR-87",
+      "description": "new task",
+      "points": 22,
       "priority": "Baja",
-      "points": 7,
-      "state": "to do"
+      "state": "toDo",
+      "id": 2
     },
     {
-      "id": 2,
-      "name": "ITDR 7",
-      "description": "Tarea en progreso",
-      "priority": "Media",
-      "points": 3,
-      "state": "in progress"
+      "name": "ITDR-80",
+      "description": "taskcita",
+      "points": 28,
+      "priority": "Baja",
+      "state": "toDo",
+      "id": 3
     },
     {
-      "id": 2,
-      "name": "ITDR 37",
-      "description": "Task under review",
-      "priority": "Media",
-      "points": 3,
-      "state": "under review"
+      "name": "ITDR-81",
+      "description": "en progreso",
+      "points": 18,
+      "priority": "Baja",
+      "state": "inProgress",
+      "id": 4
     },
     {
-      "id": 3,
-      "name": "ITDR 37",
-      "description": "Done task",
-      "priority": "",
-      "points": 7,
-      "state": "done"
+      "name": "ITDR-95",
+      "description": "en revision",
+      "points": 87,
+      "priority": "Baja",
+      "state": "underReview",
+      "id": 5
     },
     {
-      "id": 4,
-      "name": "ITDR 737",
-      "description": "Done task 2",
-      "priority": "",
-      "points": 3,
-      "state": "done"
+      "name": "ITDR-20",
+      "description": "terminada",
+      "points": 13,
+      "priority": "Urgente",
+      "state": "done",
+      "id": 6
     }
   ]
 }
