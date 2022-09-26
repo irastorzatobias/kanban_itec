@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { helpFetch } from "../helpers/helpFetch";
-import Task from "./Task";
+import React, { useEffect, useState } from 'react';
+import Task from './Task';
+import taskService from 'services/task';
 
 export default function Card({
   tasks,
@@ -10,25 +10,23 @@ export default function Card({
   endDelete,
   endEdit,
 }) {
-  const API = helpFetch();
-
   const [adding, setAdding] = useState(false);
-  const [taskText, onChangeText] = useState("");
+  const [taskText, onChangeText] = useState('');
 
   const randomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
 
   const camelCaseToWord = (word) => {
-    return word.replace(/([a-z0-9])([A-Z])/g, "$1 $2");
+    return word.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
   };
 
-  const priorities = ["Baja", "Media", "Urgente"];
+  const priorities = ['Baja', 'Media', 'Urgente'];
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (taskText.length > 0) {
-      const taskName = "ITDR-" + randomInt(1, 100);
+      const taskName = 'ITDR-' + randomInt(1, 100);
       const task = {
         name: taskName,
         description: taskText,
@@ -37,13 +35,9 @@ export default function Card({
         state: type,
       };
 
-      const options = {
-        body: task,
-      };
-
-      API.post("tasks", options);
+      taskService.postTask(task);
       endAdd(true);
-      onChangeText("");
+      onChangeText('');
       handleAdd();
     }
   };
@@ -76,11 +70,7 @@ export default function Card({
       >
         Add
       </button>
-      <button
-        className="text-sm text-red-500"
-        onClick={handleAdd}
-        type="button"
-      >
+      <button className="text-sm text-red-500" onClick={handleAdd} type="button">
         x
       </button>
     </form>
@@ -92,8 +82,8 @@ export default function Card({
 
   return (
     <div
-      className="w-[50vw] border-double border-4 min-h-[50vh]
-     border-gray-600 bg-gray-100 rounded-lg grow-[2] p-1"
+      className="w-[50vw] shadow-lg min-h-[50vh]
+     border border-neutral-200 bg-neutral-50  rounded-lg grow-[2] p-1"
     >
       <div>
         <h1 className="text-left p-2 border-solid border-b-2 mb-1 text-xs text-gray-500 uppercase">

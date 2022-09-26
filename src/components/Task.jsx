@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { helpFetch } from "../helpers/helpFetch";
+import React from 'react';
+import taskService from 'services/task';
 
 export default function Task({
   id,
@@ -11,54 +11,54 @@ export default function Task({
   endDelete,
   endEdit,
 }) {
-  const API = helpFetch();
-
   const deleteTask = () => {
-    API.erase("tasks", id);
+    taskService.eraseTask(id);
     endDelete();
   };
 
   const editTask = () => {};
 
-  const setPriorityStyle = () => {
+  const setPriorityColor = () => {
     switch (priority) {
-      case "Baja":
-        return "bg-blue-300 text-xs p-1 rounded-full";
-      case "Media":
-        return "bg-yellow-300 text-xs p-1 rounded-full";
-      case "Urgente":
-        return "bg-red-300 text-xs p-1 rounded-full";
+      case 'Baja':
+        return 'bg-blue-400';
+      case 'Media':
+        return 'bg-yellow-400';
+      case 'Urgente':
+        return 'bg-red-400';
       default:
-        return "bg-green-300 text-xs p-1 rounded-full";
+        return 'bg-green-400';
     }
   };
 
-  const setTypeStyle = () => {
+  const setBorderColor = () => {
     switch (type) {
-      case "toDo":
-        return "p-2 bg-white border-solid border-l-4 border-blue-500";
-      case "inProgress":
-        return "p-2 bg-white border-solid border-l-4 border-yellow-500";
-      case "underReview":
-        return "p-2 bg-white border-solid border-l-4 border-red-500";
-      case "done":
-        return "p-2 bg-white border-solid border-l-4 border-green-500";
+      case 'toDo':
+        return 'border-blue-500';
+      case 'inProgress':
+        return 'border-yellow-500';
+      case 'underReview':
+        return 'border-red-500';
+      case 'done':
+        return 'border-green-500';
       default:
-        return "";
+        return '';
     }
   };
 
   return (
-    <div className={setTypeStyle()}>
-      <div className="flex justify-between mb-">
+    <div className={`p-2 bg-white border-solid border-l-4 ${setBorderColor()}`}>
+      <div className="flex justify-between mb-1">
         <h1 className="text-sm text-left">{description}</h1>
-        <p className="text-xs border-solid border-b-2 border-red-500 mb-1">
-          {name}
-        </p>
+        <p className="text-xs border-solid border-b-2 border-red-500 mb-1">{name}</p>
       </div>
-      <div className="flex justify-between items-center border-b-2">
+      <div className="flex justify-between items-center border-b-2 pb-2">
         <div className="flex items-center justify-center gap-2">
-          <p className={setPriorityStyle()}>{priority}</p>
+          <p
+            className={`${setPriorityColor()} text-xs p-1 rounded-full text-neutral-50 w-16 text-center tracking-tight`}
+          >
+            {priority}
+          </p>
           <p className="text-xs bg-gray-100 p-1 rounded-full">{points}</p>
         </div>
         <div className="flex gap-2">
