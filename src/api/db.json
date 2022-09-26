@@ -1,30 +1,6 @@
 {
   "tasks": [
     {
-      "name": "ITDR-87",
-      "description": "new task",
-      "points": 22,
-      "priority": "Baja",
-      "state": "toDo",
-      "id": 2
-    },
-    {
-      "name": "ITDR-80",
-      "description": "taskcita",
-      "points": 28,
-      "priority": "Baja",
-      "state": "toDo",
-      "id": 3
-    },
-    {
-      "name": "ITDR-81",
-      "description": "en progreso",
-      "points": 18,
-      "priority": "Baja",
-      "state": "inProgress",
-      "id": 4
-    },
-    {
       "name": "ITDR-95",
       "description": "en revision",
       "points": 87,
@@ -39,6 +15,30 @@
       "priority": "Urgente",
       "state": "done",
       "id": 6
+    },
+    {
+      "name": "ITDR-6",
+      "description": "asd",
+      "points": 77,
+      "priority": "Urgente",
+      "state": "underReview",
+      "id": 7
+    },
+    {
+      "name": "ITDR-5",
+      "description": "mortal",
+      "points": 23,
+      "priority": "Urgente",
+      "state": "inProgress",
+      "id": 8
+    },
+    {
+      "name": "ITDR-25",
+      "description": "tareita par ahacer",
+      "points": 29,
+      "priority": "Baja",
+      "state": "toDo",
+      "id": 9
     }
   ]
 }

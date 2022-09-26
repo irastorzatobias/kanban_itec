@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { helpFetch } from "../helpers/helpFetch";
-import EditModal from "./EditModal";
 
 export default function Task({
   id,

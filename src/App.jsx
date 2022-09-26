@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Card from "./components/Card";
 import CardContainer from "./components/CardContainer";
@@ -91,7 +91,7 @@ function App() {
 
   return (
     <div className="App w-[100vw] h-[100vh]">
-      <Header title="kanban board" />
+      <Header title="kanban board"/>
       <CardContainer>
         <Card
           tasks={tasks["toDo"]}
