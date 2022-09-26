@@ -39,6 +39,38 @@
       "priority": "Baja",
       "state": "toDo",
       "id": 9
+    },
+    {
+      "name": "ITDR-24",
+      "description": "xxc",
+      "points": 98,
+      "priority": "Urgente",
+      "state": "toDo",
+      "id": 11
+    },
+    {
+      "name": "ITDR-71",
+      "description": "aasd",
+      "points": 39,
+      "priority": "Urgente",
+      "state": "inProgress",
+      "id": 12
+    },
+    {
+      "name": "ITDR-66",
+      "description": "asd",
+      "points": 35,
+      "priority": "Baja",
+      "state": "done",
+      "id": 13
+    },
+    {
+      "name": "ITDR-79",
+      "description": "asd",
+      "points": 32,
+      "priority": "Urgente",
+      "state": "underReview",
+      "id": 14
     }
   ]
 }

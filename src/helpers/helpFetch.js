@@ -1,9 +1,9 @@
-export const helpFetch = () => {
-  const URL = "http://localhost:3004";
+const helpFetch = () => {
+  const URL = 'http://localhost:3004';
   const customFetch = (endpoint, options = []) => {
-    options.method = options.method || "GET";
+    options.method = options.method || 'GET';
     options.headers = {
-      "content-type": "application/json",
+      'content-type': 'application/json',
     };
 
     if (options.body) {
@@ -26,16 +26,16 @@ export const helpFetch = () => {
   const get = (endpoint) => customFetch(endpoint);
 
   const post = (endpoint, options) => {
-    options.method = "POST";
+    options.method = 'POST';
     return customFetch(endpoint, options);
   };
 
   const erase = (endpoint, id) => {
     const options = {
-      method: 'DELETE'
-    }
+      method: 'DELETE',
+    };
     return customFetch(`${endpoint}/${id}`, options);
-  }
+  };
 
   return { get, post, erase };
 };

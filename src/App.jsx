@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import Card from "./components/Card";
-import CardContainer from "./components/CardContainer";
-import Header from "./components/Header";
-import { helpFetch } from "./helpers/helpFetch";
+import React, { useState, useEffect } from 'react';
+import Card from './components/Card';
+import CardContainer from './components/CardContainer';
+import Header from './components/Header';
+import taskService from 'services/task';
 
 function App() {
-  const API = helpFetch();
-
   const [tasks, setTasks] = useState({
     toDo: [],
     inProgress: [],
@@ -46,25 +43,25 @@ function App() {
     });
     tasksArray.forEach((task) => {
       switch (task.state) {
-        case "toDo":
+        case 'toDo':
           setTasks((prevState) => ({
             ...prevState,
             toDo: [...prevState.toDo, task],
           }));
           break;
-        case "inProgress":
+        case 'inProgress':
           setTasks((prevState) => ({
             ...prevState,
             inProgress: [...prevState.inProgress, task],
           }));
           break;
-        case "underReview":
+        case 'underReview':
           setTasks((prevState) => ({
             ...prevState,
             underReview: [...prevState.underReview, task],
           }));
           break;
-        case "done":
+        case 'done':
           setTasks((prevState) => ({
             ...prevState,
             done: [...prevState.done, task],
@@ -78,24 +75,18 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      const data = await API.get("tasks");
-      setupTasks(data);
-    })();
-  }, []);
+      const data = await taskService.getTasks();
 
-  useEffect(() => {
-    (async () => {
-      const data = await API.get("tasks");
       setupTasks(data);
     })();
   }, [doneAdding, doneDelete]);
 
   return (
-    <div className="App w-[100vw] h-[100vh]">
+    <div className="w-screen h-screen bg-slate-100">
       <Header title="kanban board" />
       <CardContainer>
         <Card
-          tasks={tasks["toDo"]}
+          tasks={tasks['toDo']}
           toggleAdd={toggleAdd}
           isAdding={isAdding}
           type="toDo"
@@ -104,7 +95,7 @@ function App() {
           endEdit={endEdit}
         />
         <Card
-          tasks={tasks["inProgress"]}
+          tasks={tasks['inProgress']}
           toggleAdd={toggleAdd}
           isAdding={isAdding}
           type="inProgress"
@@ -113,7 +104,7 @@ function App() {
           endEdit={endEdit}
         />
         <Card
-          tasks={tasks["underReview"]}
+          tasks={tasks['underReview']}
           toggleAdd={toggleAdd}
           isAdding={isAdding}
           type="underReview"
@@ -122,7 +113,7 @@ function App() {
           endEdit={endEdit}
         />
         <Card
-          tasks={tasks["done"]}
+          tasks={tasks['done']}
           toggleAdd={toggleAdd}
           isAdding={isAdding}
           type="done"
