@@ -2,7 +2,14 @@ import React, { useEffect, useState } from "react";
 import { helpFetch } from "../helpers/helpFetch";
 import Task from "./Task";
 
-export default function Card({ tasks, type, toggleAdd, endAdd, endDelete, endEdit }) {
+export default function Card({
+  tasks,
+  type,
+  toggleAdd,
+  endAdd,
+  endDelete,
+  endEdit,
+}) {
   const API = helpFetch();
 
   const [adding, setAdding] = useState(false);
@@ -63,7 +70,7 @@ export default function Card({ tasks, type, toggleAdd, endAdd, endDelete, endEdi
         value={taskText}
       />
       <button
-        className="bg-blue-500 hover:bg-blue-700 
+        className="bg-blue-500 hover:bg-blue-700
       text-white font-bold px-4 rounded text-sm "
         type="submit"
       >

@@ -14,6 +14,8 @@ function App() {
     underReview: [],
     done: [],
   });
+
+  const [isAdding, setIsAdding] = useState(false);
   const [doneAdding, setDoneAdding] = useState(false);
   const [doneDelete, setDoneDelete] = useState(false);
   const [doneEdit, setDoneEdit] = useState(false);
@@ -24,11 +26,16 @@ function App() {
 
   const endDelete = () => {
     setDoneDelete(!doneDelete);
-  }
+  };
 
   const endEdit = () => {
     setDoneEdit(!doneEdit);
-  }
+  };
+
+  const toggleAdd = () => {
+    const newIsAdding = !isAdding;
+    setIsAdding(newIsAdding);
+  };
 
   const setupTasks = (tasksArray) => {
     setTasks({
@@ -37,42 +44,36 @@ function App() {
       underReview: [],
       done: [],
     });
-    tasksArray.forEach(task => {
-      switch(task.state){
+    tasksArray.forEach((task) => {
+      switch (task.state) {
         case "toDo":
-          setTasks(prevState => ({
+          setTasks((prevState) => ({
             ...prevState,
-            toDo: [...prevState.toDo, task]
-          }))
+            toDo: [...prevState.toDo, task],
+          }));
           break;
         case "inProgress":
-          setTasks(prevState => ({
+          setTasks((prevState) => ({
             ...prevState,
-            inProgress: [...prevState.inProgress, task]
-          }))
+            inProgress: [...prevState.inProgress, task],
+          }));
           break;
         case "underReview":
-          setTasks(prevState => ({
+          setTasks((prevState) => ({
             ...prevState,
-            underReview: [...prevState.underReview, task]
-          }))
+            underReview: [...prevState.underReview, task],
+          }));
           break;
         case "done":
-          setTasks(prevState => ({
+          setTasks((prevState) => ({
             ...prevState,
-            done: [...prevState.done, task]
-          }))
+            done: [...prevState.done, task],
+          }));
           break;
         default:
           break;
       }
-    })
-  };
-  const [isAdding, setIsAdding] = useState(false);
-
-  const toggleAdd = () => {
-    const newIsAdding = !isAdding;
-    setIsAdding(newIsAdding);
+    });
   };
 
   useEffect(() => {
@@ -91,7 +92,7 @@ function App() {
 
   return (
     <div className="App w-[100vw] h-[100vh]">
-      <Header title="kanban board"/>
+      <Header title="kanban board" />
       <CardContainer>
         <Card
           tasks={tasks["toDo"]}
